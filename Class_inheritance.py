@@ -9,8 +9,13 @@ class Figure:
     def get_color(self):
         return self.__color
 
-    def __is_valid_color(self, r, g, b):
+    @staticmethod
+    def __is_valid_color(r, g, b):
         for value in (r, g, b):
             if value > 255 or value < 0:
                 return False
         return True
+
+    def set_color(self, r, g, b):
+        if self.__is_valid_color(r, g, b):
+            self.__color = r, g, b
